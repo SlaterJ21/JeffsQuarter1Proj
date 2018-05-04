@@ -1,0 +1,27 @@
+{
+  "name": "Qtr1Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SlaterJ21/JeffsQuarter1Proj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SlaterJ21/JeffsQuarter1Proj/issues"
+  },
+  "homepage": "https://github.com/SlaterJ21/JeffsQuarter1Proj#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  }
+}
