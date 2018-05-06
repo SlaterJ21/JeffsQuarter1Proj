@@ -1,3 +1,2 @@
 let assert = require('assert');
-
-let character = require('../javascript/main.js');
+let character = require('../src/main.js');
