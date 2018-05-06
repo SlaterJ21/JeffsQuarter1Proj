@@ -61,10 +61,13 @@ function hungerTimer(){
     $('.status').text('Famished')
   }
   if (hunger === 10){
-    $('.status').text('Starved')
-    $('.screen').text('dead');
     clearInterval(hT);
     clearInterval(tT);
+    $('.one').off();
+    $('.two').off();
+    $('.three').off();
+    $('.status').text('Starved')
+    $('.screen').html(deadBones);
   }
 }
 
@@ -93,10 +96,13 @@ function thirstTimer(){
   }
 
   if (thirst === 5){
-    $('.status').text('VERDURSTEN');
-    $('.screen').text('dead');
     clearInterval(tT);
     clearInterval(hT);
+    $('.one').off();
+    $('.two').off();
+    $('.three').off();
+    $('.status').text('VERDURSTEN');
+    $('.screen').html(deadBones);
   }
 }
 
@@ -138,7 +144,6 @@ $('.two').click(function(){
 });
 
 $('.three').click(function(){
-  resetThirst();
 });
 
 $('.reset').click(function(){

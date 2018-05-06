@@ -20,6 +20,7 @@
   border: 2px solid black;
   border-radius: 100%;
   margin: auto;
+  margin-top: 5%;
 }
 
 .ic {
@@ -27,7 +28,7 @@
 }
 
 .status {
-  height: 80%;
+  height: 85%;
   width: 80%;
   border: 2px solid black;
   border-radius: 1vw;
@@ -35,7 +36,6 @@
   grid-row: 2 / 3;
   align-self: center;
   margin: auto;
-  margin-bottom: 2%;
   background: white;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
