@@ -1,18 +1,24 @@
+class Game {
+  constructor() {
+    this.warmth = 10;
+    this.growth = 3;
+    this.hatch = 2;
+    this.hunger = 0;
+    this.thirst = 0;
+    this.eggPoke = 0;
+    this.wT = null;
+    this.hT = null;
+    this.tT = null;
+  }
+}
+
+
 $(document).ready(function(){
+  let game = new Game();
+  game.wT = setInterval(warmthTimer,1000)
+
   $('.screen').html(egg);
   $('.status').text('Egg');
-
-  let game = {
-    warmth: 10,
-    growth: 3,
-    hatch: 2,
-    hunger: 0,
-    thirst: 0,
-    eggPoke: 0,
-    wT: setInterval(warmthTimer,1000),
-    hT: null,
-    tT: null
-  }
 
   function warmthTimer(){
     game.warmth--;
