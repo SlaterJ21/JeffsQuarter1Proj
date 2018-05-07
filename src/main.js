@@ -2,40 +2,38 @@ $(document).ready(function(){
   $('.screen').html(egg);
   $('.status').text('Egg');
 
-  let warmth = 10;
-  let growth = 3;
-  let hatch = 2;
-  let hunger = 0;
-  let thirst = 0;
-  let eggPoke = 0;
-  let wT = setInterval(warmthTimer,1000);
-  let hT;
-  let tT;
-
   let game = {
-    
+    warmth: 10,
+    growth: 3,
+    hatch: 2,
+    hunger: 0,
+    thirst: 0,
+    eggPoke: 0,
+    wT: setInterval(warmthTimer,1000),
+    hT: null,
+    tT: null
   }
 
   function warmthTimer(){
-    warmth--;
-    if (hatch === 3){
+    game.warmth--;
+    if (game.hatch === 3){
       $('.one').off();
       $('.screen').off();
-      clearInterval(wT);
+      clearInterval(game.wT);
       $('.status').text('Eggs Hatching')
       setTimeout(function(){ $('.screen').html(eggCrack); }, 750);
       setTimeout(function(){ $('.screen').html(crackedEgg); }, 1500);
       setTimeout(function(){ $('.screen').html(baby); }, 2250);
-      setTimeout(function(){ hT = setInterval(hungerTimer, 1000); }, 3000);
-      setTimeout(function(){ tT = setInterval(thirstTimer, 1000); }, 3000);
+      setTimeout(function(){ game.hT = setInterval(hungerTimer, 1000); }, 3000);
+      setTimeout(function(){ game.tT = setInterval(thirstTimer, 1000); }, 3000);
     }
-    if (warmth === 5){
+    if (game.warmth === 5){
       $('.status').text('Cold egg');
       $('.ic').css('background-color', $('.one').css('background-color'));
       $('.screen').html(coldEgg);
     }
-    if (warmth === 0){
-      clearInterval(wT);
+    if (game.warmth === 0){
+      clearInterval(game.wT);
       $('.screen').off();
       $('.ic').css('background-color', $('.reset').css('background-color'));
       $('.status').text('Frozen Dead Egg');
@@ -44,33 +42,33 @@ $(document).ready(function(){
   }
 
       function resetWarmth(){
-        if (warmth > 5){
-          clearInterval(wT);
+        if (game.warmth > 5){
+          clearInterval(game.wT);
           $('.ic').css('background-color', $('.reset').css('background-color'));
           $('.status').text('Fried Egg');
           $('.screen').html(friedEgg);
         }
-        if (warmth < 6 && hatch < 3){
+        if (game.warmth < 6 && game.hatch < 3){
           $('.status').text('Warm egg');
           $('.ic').css('background-color', 'white');
           $('.screen').html(egg);
-          warmth = 10;
-          hatch++;
+          game.warmth = 10;
+          game.hatch++;
         }
       }
 
 function hungerTimer(){
   $('.two').click(resetHunger)
-  hunger++;
-  if (hunger === 6 && $('.status').text() === 'Thirsty'){
+  game.hunger++;
+  if (game.hunger === 6 && $('.status').text() === 'Thirsty'){
     $('.status').text('Thirsty & Hungry');
-  } else if (hunger === 6){
+  } else if (game.hunger === 6){
     $('.ic').css('background-color', $('.two').css('background-color'));
     $('.status').text('Hungry')
   }
-  if (hunger === 10){
-    clearInterval(hT);
-    clearInterval(tT);
+  if (game.hunger === 10){
+    clearInterval(game.hT);
+    clearInterval(game.tT);
     $('.one').off();
     $('.two').off();
     $('.three').off();
@@ -81,9 +79,9 @@ function hungerTimer(){
 }
 
       function resetHunger(){
-        if (growth === 4){
-          clearInterval(tT);
-          clearInterval(hT);
+        if (game.growth === 4){
+          clearInterval(game.tT);
+          clearInterval(game.hT);
           $('.one').off();
           $('.two').off();
           $('.three').off();
@@ -91,11 +89,11 @@ function hungerTimer(){
           $('.status').text('You Win');
           $('.screen').html(grown);
         }
-        if (hunger > 4 && growth !== 4){
-          hunger = 0;
-          growth++;
+        if (game.hunger > 4 && game.growth !== 4){
+          game.hunger = 0;
+          game.growth++;
           $('.screen').html(eatBaby);
-          if (growth !== 4){
+          if (game.growth !== 4){
             setTimeout(function(){ $('.screen').html(baby); },1000);
           }
         }
@@ -110,17 +108,17 @@ function hungerTimer(){
 
 function thirstTimer(){
   $('.three').click(resetThirst)
-  thirst++;
-  if (thirst === 8 && $('.status').text() === 'Hungry'){
+  game.thirst++;
+  if (game.thirst === 8 && $('.status').text() === 'Hungry'){
     $('.status').text('Hungry & Thirsty');
-  } else if (thirst === 8) {
+  } else if (game.thirst === 8) {
     $('.ic').css('background-color', $('.three').css('background-color'));
     $('.status').text('Thirsty')
   }
 
-  if (thirst === 13){
-    clearInterval(tT);
-    clearInterval(hT);
+  if (game.thirst === 13){
+    clearInterval(game.tT);
+    clearInterval(game.hT);
     $('.one').off();
     $('.two').off();
     $('.three').off();
@@ -131,8 +129,8 @@ function thirstTimer(){
 }
 
     function resetThirst(){
-      if (thirst > 8){
-        thirst = 0;
+      if (game.thirst > 8){
+        game.thirst = 0;
         $('.screen').html(babyDrink);
         setTimeout(function(){ $('.screen').html(baby); },1000);
         if ($('.status').text() === 'Thirsty & Hungry' || $('.status').text() === 'Hungry & Thirsty'){
@@ -146,9 +144,9 @@ function thirstTimer(){
 
 function pokeEgg(){
   $('.status').text('Dont poke egg');
-  eggPoke++;
-  if (eggPoke === 3){
-    clearInterval(wT);
+  game.eggPoke++;
+  if (game.eggPoke === 3){
+    clearInterval(game.wT);
     $('.one').off();
     $('.screen').off();
     $('.ic').css('background-color', $('.reset').css('background-color'));
@@ -161,7 +159,7 @@ function pokeEgg(){
 
 
 $('.one').click(function(){
-  if (warmth !== 0){
+  if (game.warmth !== 0){
       resetWarmth();
   }
 });
