@@ -3,6 +3,7 @@ $(document).ready(function(){
   $('.status').text('Egg');
 
   let warmth = 10;
+  let growth = 0;
   let hatch = 2;
   let hunger = 0;
   let thirst = 0;
@@ -32,6 +33,7 @@ $(document).ready(function(){
     if (warmth === 0){
       clearInterval(wT);
       $('.screen').off();
+      $('.ic').css('background-color', $('.reset').css('background-color'));
       $('.status').text('Frozen Dead Egg');
       $('.screen').html(frozenSolid);
     }
@@ -40,6 +42,7 @@ $(document).ready(function(){
       function resetWarmth(){
         if (warmth > 5){
           clearInterval(wT);
+          $('.ic').css('background-color', $('.reset').css('background-color'));
           $('.status').text('Fried Egg');
           $('.screen').html(friedEgg);
         }
@@ -55,10 +58,11 @@ $(document).ready(function(){
 function hungerTimer(){
   $('.two').click(resetHunger)
   hunger++;
-  if (hunger === 6 && $('.status').text() === 'Parched'){
-    $('.status').text('Parched & Famished');
+  if (hunger === 6 && $('.status').text() === 'Thirsty'){
+    $('.status').text('Thirsty & Hungry');
   } else if (hunger === 6){
-    $('.status').text('Famished')
+    $('.ic').css('background-color', $('.two').css('background-color'));
+    $('.status').text('Hungry')
   }
   if (hunger === 10){
     clearInterval(hT);
@@ -66,6 +70,7 @@ function hungerTimer(){
     $('.one').off();
     $('.two').off();
     $('.three').off();
+    $('.ic').css('background-color', $('.reset').css('background-color'));
     $('.status').text('Starved')
     $('.screen').html(deadBones);
   }
@@ -77,22 +82,23 @@ function hungerTimer(){
           $('.screen').html(eatBaby);
           setTimeout(function(){ $('.screen').html(baby); },1000);
         }
-        if ($('.status').text() === 'Parched & Famished' || $('.status').text() === $('.status').text() === 'Famished & Parched'){
-          $('.status').text('Parched');
+        if ($('.status').text() === 'Thirsty & Hungry' || $('.status').text() === 'Hungry & Thirsty'){
+          $('.status').text('Thirsty');
           $('.screen').text(eatBaby);
-        } else if ($('.status').text() === 'Famished'){
+        } else if ($('.status').text() === 'Hungry'){
           $('.status').text('Yum');
+          $('.ic').css('background-color', 'white');
         }
       }
 
 function thirstTimer(){
-  console.log(thirst)
   $('.three').click(resetThirst)
   thirst++;
-  if (thirst === 3 && $('.status').text() === 'Famished'){
-    $('.status').text('Famished & Parched');
+  if (thirst === 3 && $('.status').text() === 'Hungry'){
+    $('.status').text('Hungry & Thirsty');
   } else if (thirst === 3) {
-    $('.status').text('Parched')
+    $('.ic').css('background-color', $('.three').css('background-color'));
+    $('.status').text('Thirsty')
   }
 
   if (thirst === 5){
@@ -101,7 +107,8 @@ function thirstTimer(){
     $('.one').off();
     $('.two').off();
     $('.three').off();
-    $('.status').text('VERDURSTEN');
+    $('.ic').css('background-color', $('.reset').css('background-color'));
+    $('.status').text('Died of Thirst');
     $('.screen').html(deadBones);
   }
 }
@@ -111,10 +118,11 @@ function thirstTimer(){
         thirst = 0;
         $('.screen').html(babyDrink);
         setTimeout(function(){ $('.screen').html(baby); },1000);
-        if ($('.status').text() === 'Parched & Famished' || $('.status').text() === 'Famished & Parched'){
-          $('.status').text('Famished');
-        } else if ($('.status').text() === 'Parched'){
+        if ($('.status').text() === 'Thirsty & Hungry' || $('.status').text() === 'Hungry & Thirsty'){
+          $('.status').text('Hungry');
+        } else if ($('.status').text() === 'Thirsty'){
           $('.status').text('Quenched');
+          $('.ic').css('background-color', 'white');
         }
       }
     }
@@ -126,6 +134,7 @@ function pokeEgg(){
     clearInterval(wT);
     $('.one').off();
     $('.screen').off();
+    $('.ic').css('background-color', $('.reset').css('background-color'));
     $('.status').text('You broke it');
     $('.screen').html(eggCrack);
   }
