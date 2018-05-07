@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('.status').text('Egg');
 
   let warmth = 10;
-  let growth = 0;
+  let growth = 3;
   let hatch = 2;
   let hunger = 0;
   let thirst = 0;
@@ -12,6 +12,10 @@ $(document).ready(function(){
   let hT;
   let tT;
 
+  let game = {
+    
+  }
+
   function warmthTimer(){
     warmth--;
     if (hatch === 3){
@@ -19,11 +23,11 @@ $(document).ready(function(){
       $('.screen').off();
       clearInterval(wT);
       $('.status').text('Eggs Hatching')
-      setTimeout(function(){ $('.screen').html(eggCrack); }, 1000);
-      setTimeout(function(){ $('.screen').html(crackedEgg); }, 2500);
-      setTimeout(function(){ $('.screen').html(baby); }, 4000);
-      setTimeout(function(){ hT = setInterval(hungerTimer, 1000); }, 4000);
-      setTimeout(function(){ tT = setInterval(thirstTimer, 1000); }, 4000);
+      setTimeout(function(){ $('.screen').html(eggCrack); }, 750);
+      setTimeout(function(){ $('.screen').html(crackedEgg); }, 1500);
+      setTimeout(function(){ $('.screen').html(baby); }, 2250);
+      setTimeout(function(){ hT = setInterval(hungerTimer, 1000); }, 3000);
+      setTimeout(function(){ tT = setInterval(thirstTimer, 1000); }, 3000);
     }
     if (warmth === 5){
       $('.status').text('Cold egg');
@@ -77,14 +81,27 @@ function hungerTimer(){
 }
 
       function resetHunger(){
-        if (hunger > 4){
+        if (growth === 4){
+          clearInterval(tT);
+          clearInterval(hT);
+          $('.one').off();
+          $('.two').off();
+          $('.three').off();
+          $('.ic').css('background-color', $('.reset').css('background-color'));
+          $('.status').text('You Win');
+          $('.screen').html(grown);
+        }
+        if (hunger > 4 && growth !== 4){
           hunger = 0;
+          growth++;
           $('.screen').html(eatBaby);
-          setTimeout(function(){ $('.screen').html(baby); },1000);
+          if (growth !== 4){
+            setTimeout(function(){ $('.screen').html(baby); },1000);
+          }
         }
         if ($('.status').text() === 'Thirsty & Hungry' || $('.status').text() === 'Hungry & Thirsty'){
           $('.status').text('Thirsty');
-          $('.screen').text(eatBaby);
+          $('.screen').html(eatBaby);
         } else if ($('.status').text() === 'Hungry'){
           $('.status').text('Yum');
           $('.ic').css('background-color', 'white');
@@ -94,14 +111,14 @@ function hungerTimer(){
 function thirstTimer(){
   $('.three').click(resetThirst)
   thirst++;
-  if (thirst === 3 && $('.status').text() === 'Hungry'){
+  if (thirst === 8 && $('.status').text() === 'Hungry'){
     $('.status').text('Hungry & Thirsty');
-  } else if (thirst === 3) {
+  } else if (thirst === 8) {
     $('.ic').css('background-color', $('.three').css('background-color'));
     $('.status').text('Thirsty')
   }
 
-  if (thirst === 5){
+  if (thirst === 13){
     clearInterval(tT);
     clearInterval(hT);
     $('.one').off();
@@ -114,7 +131,7 @@ function thirstTimer(){
 }
 
     function resetThirst(){
-      if (thirst < 6){
+      if (thirst > 8){
         thirst = 0;
         $('.screen').html(babyDrink);
         setTimeout(function(){ $('.screen').html(baby); },1000);
