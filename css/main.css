@@ -1,4 +1,14 @@
+.page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  height: 55vw;
+  width: 100vw;
+}
+
 .console {
+  grid-column: 2 / 3;
+  grid-row: 2 / 5;
   display: grid;
   grid-template-columns: 20% 29% 2% 29% 20%;
   grid-template-rows: repeat(10, 1fr);
@@ -6,7 +16,7 @@
   width: 30vw;
   border: 2px solid black;
   border-radius: 50% / 60% 60% 40% 40%;
-  margin: 20vw auto;
+  margin: auto;
   background-color: lightgrey;
 }
 
@@ -21,7 +31,7 @@
   border: 2px solid black;
   border-radius: 100%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 2vw;
 }
 
 .ic {
@@ -110,6 +120,7 @@
 .two {
   grid-row: 1 / 2;
   background-color: green;
+  margin-left: -.1vw;
 }
 
 .three {
@@ -119,12 +130,162 @@
 }
 
 .reset {
-  height: 15%;
-  width: 120%;
+  height: 1vw;
+  width: 1vw;
   border: 1px solid black;
   border-radius: 100%;
   grid-column: 3 / 4;
   grid-row: 10 / 11;
   margin: auto;
+  margin-left: -.3vw;
   background-color: red;
+}
+
+.start {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin: auto;
+  margin-top: 5vw;
+  margin-bottom: 2vw;
+  font-size: 1.2vw;
+  padding: .6vw;
+  height: 2vw;
+  width: 8vw;
+  border: 2px solid black;
+  border-radius: 20%;
+}
+
+.startButton {
+  text-align: center;
+  margin: auto;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.statusInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.statusInfoCon {
+  grid-column: 3 / 4;
+  margin-right: -3vw;
+  height: 8vw;
+  width: 15vw;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1.6vw;
+  text-align: center;
+  font-size: 1.2vw;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.eggInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 5vw;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.eggInfoCon {
+  grid-column: 3 / 4;
+  margin-left: 14vw;
+  height: 8vw;
+  width: 15vw;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1.6vw;
+  text-align: center;
+  font-size: 1.2vw;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.indicInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  margin-left: -3vw;
+}
+
+.indicInfoCon {
+  grid-column: 1 / 2;
+  height: 8vw;
+  width: 15vw;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1.6vw;
+  text-align: center;
+  font-size: 1.2vw;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.buttonInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
+}
+
+.buttonInfoCon {
+  grid-column: 3 / 4;
+  height: 8vw;
+  width: 15vw;
+  margin-right: -3vw;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1.6vw;
+  text-align: center;
+  font-size: 1.2vw;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.resetInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 3 / 4;
+  grid-row: 5 / 6;
+}
+
+.resetInfoCon {
+  grid-column: 1 / 2;
+  height: 8vw;
+  width: 15vw;
+  margin-left: -3vw;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1.6vw;
+  text-align: center;
+  font-size: 1.2vw;
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.story {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.storyCon {
+  height: 10vw;
+  width: 25vw;
+  margin-top: 4vw;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1.6vw;
+  text-align: center;
+  font-size: 1.2vw;
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.inst {
+  background-color: blue;
+  opacity: .5;
+}
+
+.instCo {
+  border: 5px solid blue;
 }

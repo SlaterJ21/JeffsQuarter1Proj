@@ -3,7 +3,7 @@ class Game {
     this.state = 0;
     this.warmth = 0;
     this.growth = 0;
-    this.hatch = 2;
+    this.hatch = 0;
     this.hunger = 0;
     this.thirst = 0;
     this.urgency = 0;
@@ -14,46 +14,43 @@ class Game {
     this.wT = function(){
       this.warmth++;
       if (this.hatch === 3){
-        $('.one').off();
         this.imgArray.push(0);
         this.imgArray.push(2);
         this.imgArray.push(3);
         this.imgArray.push(5);
         this.state = 1;
       }
-      if (this.warmth === 5){
+      if (this.warmth === 6){
         this.imgArray.push(4);
       }
       if (this.warmth === 10){
         this.imgArray.push(6);
-        this.state = 2;
+        this.state = 10;
       }
     }
 
     this.hT = function(){
       this.hunger++;
-      if (this.hunger === 4 && $('.status').text() === 'Thirsty'){
+      if (this.hunger === 7 && $('.status').text() === 'Thirsty'){
         $('.status').text('Thirsty & Hungry');
-      } else if (this.hunger === 4){
+      } else if (this.hunger === 7){
         $('.ic').css('background-color', $('.two').css('background-color'));
-        $('.status').text('Hungry')
+        $('.status').text('Hungry');
       }
-      if (this.hunger === 10){
-        $('.ic').css('background-color', $('.reset').css('background-color'));
+      if (this.hunger === 14){
         $('.status').text('Starved');
         this.state = 2;
       }};
 
     this.tT = function(){
       this.thirst++;
-      if (this.thirst === 8 && $('.status').text() === 'Hungry'){
+      if (this.thirst === 10 && $('.status').text() === 'Hungry'){
         $('.status').text('Hungry & Thirsty');
-      } else if (this.thirst === 8) {
+      } else if (this.thirst === 10) {
         $('.ic').css('background-color', $('.three').css('background-color'));
         $('.status').text('Thirsty')
       }
-      if (this.thirst === 13){
-        $('.ic').css('background-color', $('.reset').css('background-color'));
+      if (this.thirst === 15){
         $('.status').text('Died of Thirst');
         this.state = 2;
       }};
@@ -65,8 +62,14 @@ class Game {
 $(document).ready(function(){
   let game = new Game();
   let wait = 0;
-  
-  setInterval(gameState, 1000);
+
+  $('.screen').html(egg);
+
+  function startGame(){
+    setInterval(gameState, 1000);
+  }
+
+  $('.start').click(startGame);
 
   function gameState(){
     if (game.state === 0){
@@ -97,7 +100,6 @@ $(document).ready(function(){
         $('.status').text('Fried Egg');
         $('.screen').html(friedEgg);
       } else if (game.imgCount === 2){
-        console.log(game.imgArray[1])
         if (game.pokeEgg > 2){
           $('.ic').css('background-color', $('.reset').css('background-color'));
           $('.status').text('You broke it');
@@ -151,25 +153,30 @@ $(document).ready(function(){
   }
 
   function resetWarmth(){
-    if (game.warmth < 5){
+    if (game.warmth === 10){
+        $('.one').off();
+    }
+    if (game.warmth < 6){
       game.imgArray.push(1);
       game.state = 10;
     }
-    if (game.warmth > 4 && game.hatch < 3){
+    if (game.warmth > 5 && game.hatch < 3){
       $('.status').text('Warm egg');
       $('.ic').css('background-color', 'white');
-      game.imgCount = 0;
+      game.imgArray.push(0);
       game.warmth = 0;
       game.hatch++;
+    }
+    if (game.hatch === 3){
+        $('.one').off();
     }
   }
 
   function resetHunger(){
     if (game.growth === 4){
-      game.imgArray.push(10);
       game.state = 3;
     }
-    if (game.hunger > 3){
+    if (game.hunger > 6){
       game.hunger = 0;
       game.growth++;
       game.urgency++;
@@ -179,7 +186,7 @@ $(document).ready(function(){
   }
 
   function resetThirst(){
-    if (game.thirst > 8){
+    if (game.thirst > 9){
       game.thirst = 0;
       game.urgency++;
       game.imgArray.push(8);
@@ -188,9 +195,9 @@ $(document).ready(function(){
   }
 
   function resetUrgency(){
-    console.log(game.urgency)
     if (game.urgency > 2){
       game.urgency = 0;
+      game.imgArray.push(11);
       game.imgArray.push(11);
       game.imgArray.push(5);
     }
@@ -200,15 +207,16 @@ $(document).ready(function(){
     $('.status').text('Dont poke egg');
     game.eggPoke++;
     if (game.eggPoke === 3){
-      game.imgArray.push(game.imgCount = 2);
+      game.imgArray.push(2);
+      game.state = 10;
     }
   }
 
 
   $('.one').click(function(){
-    if (game.warmth !== 10){
+
         resetWarmth();
-      }
+
   });
 
   $('.screen').click(function(){
