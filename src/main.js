@@ -1,188 +1,226 @@
 class Game {
   constructor() {
-    this.warmth = 10;
-    this.growth = 3;
+    this.state = 0;
+    this.warmth = 0;
+    this.growth = 0;
     this.hatch = 2;
     this.hunger = 0;
     this.thirst = 0;
+    this.urgency = 0;
     this.eggPoke = 0;
-    this.wT = null;
-    this.hT = null;
-    this.tT = null;
+    this.imgCount = 0;
+    this.imgArray = [];
+
+    this.wT = function(){
+      this.warmth++;
+      if (this.hatch === 3){
+        $('.one').off();
+        this.imgArray.push(0);
+        this.imgArray.push(2);
+        this.imgArray.push(3);
+        this.imgArray.push(5);
+        this.state = 1;
+      }
+      if (this.warmth === 5){
+        this.imgArray.push(4);
+      }
+      if (this.warmth === 10){
+        this.imgArray.push(6);
+        this.state = 2;
+      }
+    }
+
+    this.hT = function(){
+      this.hunger++;
+      if (this.hunger === 4 && $('.status').text() === 'Thirsty'){
+        $('.status').text('Thirsty & Hungry');
+      } else if (this.hunger === 4){
+        $('.ic').css('background-color', $('.two').css('background-color'));
+        $('.status').text('Hungry')
+      }
+      if (this.hunger === 10){
+        $('.ic').css('background-color', $('.reset').css('background-color'));
+        $('.status').text('Starved');
+        this.state = 2;
+      }};
+
+    this.tT = function(){
+      this.thirst++;
+      if (this.thirst === 8 && $('.status').text() === 'Hungry'){
+        $('.status').text('Hungry & Thirsty');
+      } else if (this.thirst === 8) {
+        $('.ic').css('background-color', $('.three').css('background-color'));
+        $('.status').text('Thirsty')
+      }
+      if (this.thirst === 13){
+        $('.ic').css('background-color', $('.reset').css('background-color'));
+        $('.status').text('Died of Thirst');
+        this.state = 2;
+      }};
   }
+
 }
 
 
 $(document).ready(function(){
   let game = new Game();
-  game.wT = setInterval(warmthTimer,1000)
+  let wait = 0;
+  
+  setInterval(gameState, 1000);
 
-  $('.screen').html(egg);
-  $('.status').text('Egg');
+  function gameState(){
+    if (game.state === 0){
+      game.wT();
+    } else if (game.state === 1){
+      game.hT();
+      game.tT();
+      $('.one').click(resetUrgency);
+      $('.two').click(resetHunger);
+      $('.three').click(resetThirst);
+    } else if (game.state === 2){
+      game.imgCount = 9;
+    } else if (game.state === 3){
+      game.imgCount = 10;
+    }
 
-  function warmthTimer(){
-    game.warmth--;
-    if (game.hatch === 3){
-      $('.one').off();
-      $('.screen').off();
-      clearInterval(game.wT);
-      $('.status').text('Eggs Hatching')
-      setTimeout(function(){ $('.screen').html(eggCrack); }, 750);
-      setTimeout(function(){ $('.screen').html(crackedEgg); }, 1500);
-      setTimeout(function(){ $('.screen').html(baby); }, 2250);
-      setTimeout(function(){ game.hT = setInterval(hungerTimer, 1000); }, 3000);
-      setTimeout(function(){ game.tT = setInterval(thirstTimer, 1000); }, 3000);
+    if (game.imgArray[0] !== undefined){
+      game.imgCount = game.imgArray.shift();
     }
-    if (game.warmth === 5){
-      $('.status').text('Cold egg');
-      $('.ic').css('background-color', $('.one').css('background-color'));
-      $('.screen').html(coldEgg);
-    }
-    if (game.warmth === 0){
-      clearInterval(game.wT);
-      $('.screen').off();
-      $('.ic').css('background-color', $('.reset').css('background-color'));
-      $('.status').text('Frozen Dead Egg');
-      $('.screen').html(frozenSolid);
-    }
-  }
 
-      function resetWarmth(){
-        if (game.warmth > 5){
-          clearInterval(game.wT);
+    if (wait === 0){
+      wait = 0;
+      if (game.imgCount === 0){
+        $('.screen').html(egg);
+        $('.status').text('Egg');
+      } else if (game.imgCount === 1){
+        $('.ic').css('background-color', $('.reset').css('background-color'));
+        $('.status').text('Fried Egg');
+        $('.screen').html(friedEgg);
+      } else if (game.imgCount === 2){
+        console.log(game.imgArray[1])
+        if (game.pokeEgg > 2){
           $('.ic').css('background-color', $('.reset').css('background-color'));
-          $('.status').text('Fried Egg');
-          $('.screen').html(friedEgg);
+          $('.status').text('You broke it');
+          game.state = 10;
         }
-        if (game.warmth < 6 && game.hatch < 3){
-          $('.status').text('Warm egg');
-          $('.ic').css('background-color', 'white');
-          $('.screen').html(egg);
-          game.warmth = 10;
-          game.hatch++;
+        if (game.imgArray[1] === 5){
+          $('.status').text('Eggs Hatching');
         }
-      }
-
-function hungerTimer(){
-  $('.two').click(resetHunger)
-  game.hunger++;
-  if (game.hunger === 6 && $('.status').text() === 'Thirsty'){
-    $('.status').text('Thirsty & Hungry');
-  } else if (game.hunger === 6){
-    $('.ic').css('background-color', $('.two').css('background-color'));
-    $('.status').text('Hungry')
-  }
-  if (game.hunger === 10){
-    clearInterval(game.hT);
-    clearInterval(game.tT);
-    $('.one').off();
-    $('.two').off();
-    $('.three').off();
-    $('.ic').css('background-color', $('.reset').css('background-color'));
-    $('.status').text('Starved')
-    $('.screen').html(deadBones);
-  }
-}
-
-      function resetHunger(){
-        if (game.growth === 4){
-          clearInterval(game.tT);
-          clearInterval(game.hT);
-          $('.one').off();
-          $('.two').off();
-          $('.three').off();
-          $('.ic').css('background-color', $('.reset').css('background-color'));
-          $('.status').text('You Win');
-          $('.screen').html(grown);
-        }
-        if (game.hunger > 4 && game.growth !== 4){
-          game.hunger = 0;
-          game.growth++;
-          $('.screen').html(eatBaby);
-          if (game.growth !== 4){
-            setTimeout(function(){ $('.screen').html(baby); },1000);
-          }
-        }
+        $('.screen').html(eggCrack);
+      } else if (game.imgCount === 3){
+        $('.screen').html(crackedEgg);
+      }  else if (game.imgCount === 4){
+        $('.status').text('Cold egg');
+        $('.ic').css('background-color', $('.one').css('background-color'));
+        $('.screen').html(coldEgg);
+      } else if (game.imgCount === 5){
+        $('.screen').html(baby);
+        $('.ic').css('background-color');
+      } else if (game.imgCount === 6){
+        $('.ic').css('background-color', $('.reset').css('background-color'));
+        $('.status').text('Frozen Dead Egg');
+        $('.screen').html(frozenSolid);
+      } else if (game.imgCount === 7){
+        $('.screen').html(eatBaby);
         if ($('.status').text() === 'Thirsty & Hungry' || $('.status').text() === 'Hungry & Thirsty'){
           $('.status').text('Thirsty');
-          $('.screen').html(eatBaby);
         } else if ($('.status').text() === 'Hungry'){
           $('.status').text('Yum');
-          $('.ic').css('background-color', 'white');
         }
-      }
-
-function thirstTimer(){
-  $('.three').click(resetThirst)
-  game.thirst++;
-  if (game.thirst === 8 && $('.status').text() === 'Hungry'){
-    $('.status').text('Hungry & Thirsty');
-  } else if (game.thirst === 8) {
-    $('.ic').css('background-color', $('.three').css('background-color'));
-    $('.status').text('Thirsty')
-  }
-
-  if (game.thirst === 13){
-    clearInterval(game.tT);
-    clearInterval(game.hT);
-    $('.one').off();
-    $('.two').off();
-    $('.three').off();
-    $('.ic').css('background-color', $('.reset').css('background-color'));
-    $('.status').text('Died of Thirst');
-    $('.screen').html(deadBones);
-  }
-}
-
-    function resetThirst(){
-      if (game.thirst > 8){
-        game.thirst = 0;
+      } else if (game.imgCount === 8){
         $('.screen').html(babyDrink);
-        setTimeout(function(){ $('.screen').html(baby); },1000);
         if ($('.status').text() === 'Thirsty & Hungry' || $('.status').text() === 'Hungry & Thirsty'){
           $('.status').text('Hungry');
         } else if ($('.status').text() === 'Thirsty'){
           $('.status').text('Quenched');
-          $('.ic').css('background-color', 'white');
         }
+      } else if (game.imgCount === 9){
+        $('.screen').html(deadBones);
+      } else if (game.imgCount === 10){
+        $('.ic').css('background-color', $('.reset').css('background-color'));
+        $('.status').text('You Win');
+        $('.screen').html(grown);
+      } else if (game.imgCount === 11){
+        $('.screen').html(urgenP);
+        $('.status').text('AWW YEEAAAAHH');
       }
+
+    } else {
+      wait--;
     }
-
-function pokeEgg(){
-  $('.status').text('Dont poke egg');
-  game.eggPoke++;
-  if (game.eggPoke === 3){
-    clearInterval(game.wT);
-    $('.one').off();
-    $('.screen').off();
-    $('.ic').css('background-color', $('.reset').css('background-color'));
-    $('.status').text('You broke it');
-    $('.screen').html(eggCrack);
   }
-}
 
-
-
-
-$('.one').click(function(){
-  if (game.warmth !== 0){
-      resetWarmth();
+  function resetWarmth(){
+    if (game.warmth < 5){
+      game.imgArray.push(1);
+      game.state = 10;
+    }
+    if (game.warmth > 4 && game.hatch < 3){
+      $('.status').text('Warm egg');
+      $('.ic').css('background-color', 'white');
+      game.imgCount = 0;
+      game.warmth = 0;
+      game.hatch++;
+    }
   }
-});
 
-$('.two').click(function(){
-});
+  function resetHunger(){
+    if (game.growth === 4){
+      game.imgArray.push(10);
+      game.state = 3;
+    }
+    if (game.hunger > 3){
+      game.hunger = 0;
+      game.growth++;
+      game.urgency++;
+      game.imgArray.push(7);
+      game.imgArray.push(5);
+    }
+  }
 
-$('.three').click(function(){
-});
+  function resetThirst(){
+    if (game.thirst > 8){
+      game.thirst = 0;
+      game.urgency++;
+      game.imgArray.push(8);
+      game.imgArray.push(5);
+    }
+  }
 
-$('.reset').click(function(){
-  location.reload();
-});
+  function resetUrgency(){
+    console.log(game.urgency)
+    if (game.urgency > 2){
+      game.urgency = 0;
+      game.imgArray.push(11);
+      game.imgArray.push(5);
+    }
+  }
 
-$('.screen').click(function(){
-  pokeEgg();
-})
+  function pokeEgg(){
+    $('.status').text('Dont poke egg');
+    game.eggPoke++;
+    if (game.eggPoke === 3){
+      game.imgArray.push(game.imgCount = 2);
+    }
+  }
+
+
+  $('.one').click(function(){
+    if (game.warmth !== 10){
+        resetWarmth();
+      }
+  });
+
+  $('.screen').click(function(){
+    if (game.state === 0){
+      pokeEgg();
+    }
+  });
+
+  $('.reset').click(function(){
+    location.reload();
+  });
+
 
 
 })
