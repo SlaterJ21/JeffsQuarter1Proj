@@ -1,7 +1,33 @@
 $(document).ready(function(){
 
+  if(localStorage.getItem('switch') == 'on' || !localStorage.getItem('switch')){
+    $('.instTog').text('Instructions on');
+  } else if (localStorage.getItem('switch') == 'off'){
+    $('.instTog').text('Instructions off');
+  }
+
+  if (localStorage.getItem('switch') == 'off'){
+    $('.info').hide();
+  }
+
+  function toggleInst(){
+    if (localStorage.getItem('switch') == 'on'){
+      $('.instTog').text('Instructions off');
+      $('.info').hide();
+      localStorage.setItem('switch', 'off');
+    } else if (localStorage.getItem('switch') == 'off'){
+      $('.instTog').text('Instructions on');
+      localStorage.setItem('switch', 'on');
+      $('.info').show();
+    }
+  }
+
+  $('.instTog').click(toggleInst);
+
+
   function hideInstructions(){
     $('.info').hide();
+    $('.start').hide();
   }
 
   $('.start').click(hideInstructions);

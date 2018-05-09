@@ -38,9 +38,9 @@ class Game {
         $('.status').text('Hungry');
       }
       if (this.hunger === 14){
-        $('.status').text('Starved');
         this.state = 2;
-      }};
+      }
+    };
 
     this.tT = function(){
       this.thirst++;
@@ -51,9 +51,9 @@ class Game {
         $('.status').text('Thirsty')
       }
       if (this.thirst === 15){
-        $('.status').text('Died of Thirst');
         this.state = 2;
-      }};
+      }
+    };
   }
 
 }
@@ -138,6 +138,14 @@ $(document).ready(function(){
         }
       } else if (game.imgCount === 9){
         $('.screen').html(deadBones);
+        $('.ic').css('background-color', $('.reset').css('background-color'));
+        if (this.hunger === 14){
+          $('.status').text('Starved');
+          this.state = 2;
+        }
+        if (this.thirst === 15){
+          $('.status').text('Died of Thirst');
+        }
       } else if (game.imgCount === 10){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.status').text('You Win');
@@ -153,16 +161,11 @@ $(document).ready(function(){
   }
 
   function resetWarmth(){
-    if (game.warmth === 10){
-        $('.one').off();
-    }
     if (game.warmth < 6){
       game.imgArray.push(1);
       game.state = 10;
     }
     if (game.warmth > 5 && game.hatch < 3){
-      $('.status').text('Warm egg');
-      $('.ic').css('background-color', 'white');
       game.imgArray.push(0);
       game.warmth = 0;
       game.hatch++;
@@ -212,11 +215,10 @@ $(document).ready(function(){
     }
   }
 
-
   $('.one').click(function(){
-
+    if (game.warmth !== 10){
         resetWarmth();
-
+    }
   });
 
   $('.screen').click(function(){
@@ -228,7 +230,6 @@ $(document).ready(function(){
   $('.reset').click(function(){
     location.reload();
   });
-
 
 
 })

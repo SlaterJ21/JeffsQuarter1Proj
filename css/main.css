@@ -137,22 +137,45 @@
   grid-column: 3 / 4;
   grid-row: 10 / 11;
   margin: auto;
+  margin-bottom: 3vw;
   margin-left: -.3vw;
   background-color: red;
+}
+
+.instTogBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.instTog {
+  margin: auto;
+  margin-top: .2vw;
+  grid-column: 2 / 3;
+  border: 2px solid black;
+  height: 3vw;
+  width: 16vw;
+  padding: .6vw;
+  text-align: center;
+  line-height: 1.7vw;
+  font-size: 1.2vw;
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 1vw;
 }
 
 .start {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   margin: auto;
-  margin-top: 5vw;
+  margin-top: 7vw;
   margin-bottom: 2vw;
   font-size: 1.2vw;
   padding: .6vw;
   height: 2vw;
   width: 8vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
 }
 
 .startButton {
@@ -174,10 +197,11 @@
   height: 8vw;
   width: 15vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
   padding: 1.6vw;
   text-align: center;
   font-size: 1.2vw;
+  line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -195,10 +219,11 @@
   height: 8vw;
   width: 15vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
   padding: 1.6vw;
   text-align: center;
   font-size: 1.2vw;
+  line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -215,10 +240,11 @@
   height: 8vw;
   width: 15vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
   padding: 1.6vw;
   text-align: center;
   font-size: 1.2vw;
+  line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -233,12 +259,13 @@
   grid-column: 3 / 4;
   height: 8vw;
   width: 15vw;
-  margin-right: -3vw;
+  margin-right: -2vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
   padding: 1.6vw;
   text-align: center;
   font-size: 1.2vw;
+  line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -253,13 +280,13 @@
   grid-column: 1 / 2;
   height: 8vw;
   width: 15vw;
-  margin-left: -3vw;
+  margin-left: -2vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
   padding: 1.6vw;
   text-align: center;
   font-size: 1.2vw;
-  overflow: hidden;
+  line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -273,11 +300,11 @@
   width: 25vw;
   margin-top: 4vw;
   border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 1vw;
   padding: 1.6vw;
   text-align: center;
   font-size: 1.2vw;
-  overflow: hidden;
+  line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
 }
 
