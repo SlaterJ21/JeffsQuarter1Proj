@@ -32,42 +32,45 @@ $(document).ready(function(){
 
   $('.start').click(hideInstructions);
 
-  $( ".start" ).hover(
+$( ".start" ).hover(
   function() {
-    $( this ).addClass( "inst" );
+    $( this ).css( 'background-color', $('.three').css('background-color') );
   }, function() {
-    $( this ).removeClass( "inst" );
+    $( this ).css( 'background-color', 'rgb(255, 231, 231)' );
   }
 );
 
 $( ".eggInfoCon" ).hover(
   function() {
-    $( this ).addClass( "inst" );
+    $( this ).css( 'background-color', $('.one').css('background-color') );
     $('.screen').addClass( 'instCo');
   }, function() {
-    $( this ).removeClass( "inst" );
+    $( this ).css( 'background-color', 'rgb(255, 231, 231)' );
     $('.screen').removeClass( 'instCo');
   }
 );
 
 $( ".statusInfoCon" ).hover(
   function() {
-    $( this ).addClass( "inst" );
+    $( this ).css( 'background-color', $('.status').css('background-color') );
     $('.status').addClass( 'instCo');
   }, function() {
-    $( this ).removeClass( "inst" );
+    $( this ).css( 'background-color', 'rgb(255, 231, 231)' );
     $('.status').removeClass( 'instCo');
   }
 );
 
+// let buttonArray = [$( this ).css( 'background-color', $('.one').css('background-color') ),$( this ).css( 'background-color', $('.two').css('background-color') ),$( this ).css( 'background-color', $('.three').css('background-color') )]
+// console.log(buttonArray[Math.floor(Math.random() * 3)]);
+
 $( ".buttonInfoCon" ).hover(
   function() {
-    $( this ).addClass( "inst" );
+    $( this ).css( 'background-color', $('.two').css('background-color')  );
     $('.one').addClass( 'instCo');
     $('.two').addClass( 'instCo');
     $('.three').addClass( 'instCo');
   }, function() {
-    $( this ).removeClass( "inst" );
+    $( this ).css( 'background-color', 'rgb(255, 231, 231)' );
     $('.one').removeClass( 'instCo');
     $('.two').removeClass( 'instCo');
     $('.three').removeClass( 'instCo');
@@ -76,20 +79,20 @@ $( ".buttonInfoCon" ).hover(
 
 $( ".indicInfoCon" ).hover(
   function() {
-    $( this ).addClass( "inst" );
+    $( this ).css( 'background-color', $('.three').css('background-color') );
     $('.ic').addClass( 'instCo');
   }, function() {
-    $( this ).removeClass( "inst" );
+    $( this ).css( 'background-color', 'rgb(255, 231, 231)' );
     $('.ic').removeClass( 'instCo');
   }
 );
 
 $( ".resetInfoCon" ).hover(
   function() {
-    $( this ).addClass( "inst" );
+    $( this ).css( 'background-color', $('.reset').css('background-color') );
     $('.reset').addClass( 'instCo');
   }, function() {
-    $( this ).removeClass( "inst" );
+    $( this ).css( 'background-color', 'rgb(255, 231, 231)' );
     $('.reset').removeClass( 'instCo');
   }
 );

@@ -65,6 +65,9 @@ $(document).ready(function(){
 
   $('.screen').html(egg);
 
+$('.ic').css('background-color', '#ffe7e7')
+
+
   function startGame(){
     setInterval(gameState, 1000);
   }
@@ -94,25 +97,35 @@ $(document).ready(function(){
       wait = 0;
       if (game.imgCount === 0){
         $('.screen').html(egg);
-        $('.status').text('Egg');
+        $('.ic').css('background-color', '#ffe7e7');
+        if (game.hatch === 0){
+          $('.status').text('Say hello to egg');
+        } else if (game.hatch === 1){
+           $('.status').text('Egg is toasty');
+          } else if (game.hatch === 2){
+          $('.status').text('Nice and warm');
+            } else if (game.hatch === 3){
+            $('.status').text('Thats the spot');
+            }
       } else if (game.imgCount === 1){
         $('.ic').css('background-color', $('.reset').css('background-color'));
-        $('.status').text('Fried Egg');
+        $('.status').text('You fried Egg');
         $('.screen').html(friedEgg);
       } else if (game.imgCount === 2){
-        if (game.pokeEgg > 2){
+        if (game.eggPoke > 2){
           $('.ic').css('background-color', $('.reset').css('background-color'));
           $('.status').text('You broke it');
           game.state = 10;
         }
         if (game.imgArray[1] === 5){
+          $('.ic').css('background-color', '#ffe7e7');
           $('.status').text('Eggs Hatching');
         }
         $('.screen').html(eggCrack);
       } else if (game.imgCount === 3){
         $('.screen').html(crackedEgg);
       }  else if (game.imgCount === 4){
-        $('.status').text('Cold egg');
+        $('.status').text('Egg is cold!!!');
         $('.ic').css('background-color', $('.one').css('background-color'));
         $('.screen').html(coldEgg);
       } else if (game.imgCount === 5){
