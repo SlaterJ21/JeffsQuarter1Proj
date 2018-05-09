@@ -10,6 +10,7 @@ class Game {
     this.eggPoke = 0;
     this.imgCount = 0;
     this.imgArray = [];
+    this.aniArr = [];
 
     this.wT = function(){
       this.warmth++;
@@ -77,6 +78,7 @@ $('.ic').css('background-color', '#ffe7e7')
   function gameState(){
     if (game.state === 0){
       game.wT();
+      // aniArr = []
     } else if (game.state === 1){
       game.hT();
       game.tT();
@@ -91,6 +93,8 @@ $('.ic').css('background-color', '#ffe7e7')
 
     if (game.imgArray[0] !== undefined){
       game.imgCount = game.imgArray.shift();
+    } else {
+      game.imgCount = game.aniArr.shift();
     }
 
     if (wait === 0){
