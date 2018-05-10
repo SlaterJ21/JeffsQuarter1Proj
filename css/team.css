@@ -1,0 +1,145 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr)
+  heigth: 14vw;
+  width: 100%;
+  padding-top: 1.7vw;
+  padding-bottom: 1.7vw;
+  font-size: 1.8vw;
+  background-color: #ffbb3f;
+}
+
+.header .left {
+  grid-column: 1 / 2;
+  border-right: 1px solid black;
+  text-align: right;
+  padding-right: 2vw;
+}
+
+.header .right {
+  grid-column: 7 / 8;
+  border-left: 1px solid black;
+  padding-left: 2vw;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr)
+  heigth: 14vw;
+  width: 100%;
+  padding-top: 1.7vw;
+  padding-bottom: 1.7vw;
+  font-size: 1.8vw;
+  background-color: #ffbb3f;
+  margin-top: 8%;
+}
+
+.footer .left {
+  grid-column: 1 / 2;
+  text-align: right;
+  border-right: 1px solid black;
+  padding-right: 2vw;
+}
+
+.footer .right {
+  grid-column: 7 / 8;
+  border-left: 1px solid black;
+  padding-left: 2vw;
+}
+
+.footertwo {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  heigth: 14vw;
+  width: 100%;
+  padding-top: 1.7vw;
+  padding-bottom: 1.7vw;
+  font-size: 1.8vw;
+  background-color: #ffbb3f;
+  margin-top: 0;
+}
+
+.bck {
+  display: grid;
+  grid-template-columns: 10% 35% 10% 35% 10%;
+  grid-template-rows: 15% 70% 15%;
+  height: 66vw;
+  background-image: url(../img/image_1024.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  margin-top: 0;
+  background-position: fixed;
+}
+
+.card {
+  display: grid;
+  /* grid-template-columns: ; */
+  grid-template-rows: 20% 60% 20%;
+  height : 100%;
+  width : 80%;
+  /* border: 2px solid black; */
+  margin: auto;
+}
+
+.cOne {
+grid-column: 2 / 3;
+grid-row: 2 / 3;
+}
+
+.cTwo {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+
+.name {
+  grid-row: 1 / 2;
+  text-align: center;
+  font-size: 2vw;
+  padding: 5%;
+  margin: auto;
+  width: 80%;
+  /* height: 80%; */
+  border: 2px solid black;
+  border-radius: 1vw;
+  background-color: #e8d864;
+}
+
+.picOne {
+  grid-row: 2 / 3;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  background-image: url(../img/jeff.png);
+  background-size: cover;
+  border-radius: 5%;
+}
+
+.picTwo {
+  grid-row: 2 / 3;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  background-image: url(../img/aiden.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 5%;
+}
+
+/* .about {
+  border: 2px solid black;
+  border-radius: 1vw;
+  height: 4vw;
+  background-color: #e8d864;
+  padding: 1vw;
+  margin-top: 2vw;
+} */
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #000000; /*color of your choosing*/
+    text-decoration: none;
+    font-weight: normal;
+}

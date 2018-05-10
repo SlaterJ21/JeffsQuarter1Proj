@@ -1,5 +1,55 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr)
+  heigth: 14vw;
+  width: 100%;
+  padding-top: 1.7vw;
+  padding-bottom: 1.7vw;
+  font-size: 1.8vw;
+  background-color: #ffbb3f;
+}
+
+.header .left {
+  grid-column: 1 / 2;
+  border-right: 1px solid black;
+  text-align: right;
+  padding-right: 2vw;
+}
+
+.header .right {
+  grid-column: 7 / 8;
+  border-left: 1px solid black;
+  padding-left: 2vw;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr)
+  heigth: 14vw;
+  width: 100%;
+  padding-top: 1.7vw;
+  padding-bottom: 1.7vw;
+  font-size: 1.8vw;
+  background-color: #ffbb3f;
+  margin-top: 8%;
+}
+
+.footer .left {
+  grid-column: 1 / 2;
+  text-align: right;
+  border-right: 1px solid black;
+  padding-right: 2vw;
+}
+
+.footer .right {
+  grid-column: 7 / 8;
+  border-left: 1px solid black;
+  padding-left: 2vw;
+}
+
+
 .bck {
-  height: 125vw;
+  height: 66vw;
   background-image: url(../img/image_1024.png);
   background-repeat: no-repeat;
   background-size: 100vw;
@@ -17,13 +67,13 @@
   /* background-color: #7bd0ad; */
 }
 
-/* .ext {
+.ext {
   height: 100vh;
-  width: 98.42vw;
-  margin-top: 10.5vw;
+  width: 100%;
+  margin-top: 9%;
   background-color: #8dcec2;
   padding-top: 10vh;
-} */
+}
 
 .console {
   grid-column: 2 / 3;
@@ -397,4 +447,14 @@
 .instCo {
   border: .2vw solid white;
   color: white;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #000000; /*color of your choosing*/
+    text-decoration: none;
+    font-weight: normal;
 }
