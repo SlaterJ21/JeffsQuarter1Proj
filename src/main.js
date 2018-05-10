@@ -21,10 +21,10 @@ class Game {
         this.imgArray.push(5);
         this.state = 1;
       }
-      if (this.warmth === 6){
+      if (this.warmth === 7){
         this.imgArray.push(4);
       }
-      if (this.warmth === 12){
+      if (this.warmth === 13){
         this.imgArray.push(6);
         this.state = 10;
       }
@@ -32,11 +32,11 @@ class Game {
 
     this.hT = function(){
       this.hunger++;
-      if (this.hunger === 7 && $('.storyCon').text() === 'Thirsty'){
+      if (this.hunger === 8 && $('.storyCon').text() === 'Thirsty'){
         $('.storyCon').text('Thirsty & Hungry');
-        $('.one').addClass('instCo');
         $('.two').addClass('instCo');
-      } else if (this.hunger === 7){
+        $('.three').addClass('instCo');
+      } else if (this.hunger === 8){
         $('.ic').css('background-color', $('.two').css('background-color'));
         $('.two').addClass('instCo');
         $('.storyCon').text('Hungry');
@@ -48,16 +48,16 @@ class Game {
 
     this.tT = function(){
       this.thirst++;
-      if (this.thirst === 10 && $('.storyCon').text() === 'Hungry'){
+      if (this.thirst === 6 && $('.storyCon').text() === 'Hungry'){
         $('.storyCon').text('Hungry & Thirsty');
-        $('.one').addClass('instCo');
         $('.two').addClass('instCo');
-      } else if (this.thirst === 10) {
+        $('.three').addClass('instCo');
+      } else if (this.thirst === 6) {
         $('.ic').css('background-color', $('.three').css('background-color'));
         $('.three').addClass('instCo');
         $('.storyCon').text('Thirsty')
       }
-      if (this.thirst === 15){
+      if (this.thirst === 11){
         this.state = 2;
       }
     };
@@ -123,6 +123,10 @@ $('.ic').css('background-color', '#ffe7e7')
       $('.three').off();
     } else if (game.state === 3){
       game.imgCount = 10;
+    } else if (game.state === 10){
+      $('.one').off();
+      $('.two').off();
+      $('.three').off();
     }
     if (game.urgency > 3){
       $('.one').addClass('instCo');
@@ -130,6 +134,7 @@ $('.ic').css('background-color', '#ffe7e7')
     if (game.imgArray[0] !== undefined){
       game.imgCount = game.imgArray.shift();
     }
+
 
     if (wait === 0){
       wait = 0;
@@ -212,7 +217,7 @@ $('.ic').css('background-color', '#ffe7e7')
           $('.storyCon').text('Starved');
           game.state = 10;
         }
-        if (game.thirst === 15){
+        if (game.thirst === 11){
           $('.storyCon').text('Died of Thirst')
           game.state = 10;
         }
@@ -253,7 +258,7 @@ $('.ic').css('background-color', '#ffe7e7')
     if (game.growth === 4){
       game.state = 3;
     }
-    if (game.hunger > 6){
+    if (game.hunger > 7){
       $('.two').removeClass('instCo');
       game.hunger = 0;
       game.growth++;
@@ -265,7 +270,7 @@ $('.ic').css('background-color', '#ffe7e7')
   }
 
   function resetThirst(){
-    if (game.thirst > 9){
+    if (game.thirst > 5){
       $('.three').removeClass('instCo');
       game.thirst = 0;
       game.urgency++;
