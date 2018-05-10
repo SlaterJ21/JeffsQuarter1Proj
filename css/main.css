@@ -36,7 +36,7 @@
   border: .2vw solid black;
   border-radius: 50% / 60% 60% 40% 40%;
   margin: auto;
-  margin-top: .8vw;
+  margin-top: .7vw;
   background-color: #DD7373
 }
 
@@ -153,11 +153,24 @@
 }
 
 .button {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
   height: 4vw;
   width: 4vw;
   border: .2vw solid black;
   border-radius: 100%;
   margin: auto;
+  padding-bottom: -1vw;
+}
+
+.buttChar {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  text-align: center;
+  line-height: 1.7vw;
+  font-size: 1.2vw;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .one {
@@ -213,7 +226,7 @@
   font-family: 'Press Start 2P', cursive;
   border-radius: 1vw;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .start {
@@ -224,12 +237,12 @@
   font-size: 1.2vw;
   padding: .6vw;
   padding-top: 1vw;
-  height: 2vw;
+  height: 1.8vw;
   width: 8vw;
   border: .2vw solid black;
   border-radius: 1vw;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .startButton {
@@ -259,7 +272,7 @@
   line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .eggInfo {
@@ -271,8 +284,8 @@
 }
 
 .eggInfoCon {
-  height: 7vw;
-  width: 15vw;
+  height: 11.1vw;
+  width: 25vw;
   margin-top: 6vw;
   border: .2vw solid black;
   border-radius: 1vw;
@@ -283,7 +296,7 @@
   line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .indicInfo {
@@ -307,7 +320,7 @@
   line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .buttonInfo {
@@ -331,7 +344,7 @@
   line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .resetInfo {
@@ -355,7 +368,7 @@
   line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .story {
@@ -378,9 +391,10 @@
   line-height: 1.6vw;
   font-family: 'Press Start 2P', cursive;
   background-color: rgb(255, 231, 231);
-  opacity: .8;
+  opacity: .7;
 }
 
 .instCo {
   border: .2vw solid white;
+  color: white;
 }

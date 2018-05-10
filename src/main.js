@@ -7,7 +7,7 @@ class Game {
     this.hunger = 0;
     this.thirst = 0;
     this.total = 0;
-    this.urgency = 3;
+    this.urgency = 2;
     this.eggPoke = 0;
     this.imgCount = 0;
     this.imgArray = [];
@@ -24,7 +24,7 @@ class Game {
       if (this.warmth === 6){
         this.imgArray.push(4);
       }
-      if (this.warmth === 10){
+      if (this.warmth === 12){
         this.imgArray.push(6);
         this.state = 10;
       }
@@ -34,6 +34,8 @@ class Game {
       this.hunger++;
       if (this.hunger === 7 && $('.storyCon').text() === 'Thirsty'){
         $('.storyCon').text('Thirsty & Hungry');
+        $('.one').addClass('instCo');
+        $('.two').addClass('instCo');
       } else if (this.hunger === 7){
         $('.ic').css('background-color', $('.two').css('background-color'));
         $('.two').addClass('instCo');
@@ -48,6 +50,8 @@ class Game {
       this.thirst++;
       if (this.thirst === 10 && $('.storyCon').text() === 'Hungry'){
         $('.storyCon').text('Hungry & Thirsty');
+        $('.one').addClass('instCo');
+        $('.two').addClass('instCo');
       } else if (this.thirst === 10) {
         $('.ic').css('background-color', $('.three').css('background-color'));
         $('.three').addClass('instCo');
@@ -80,6 +84,7 @@ $('.ic').css('background-color', '#ffe7e7')
 
 
   function gameState(){
+
     if (game.total > 0){
       $('.pOne').css('background-color', '#8dd8a1');
     }
@@ -119,7 +124,9 @@ $('.ic').css('background-color', '#ffe7e7')
     } else if (game.state === 3){
       game.imgCount = 10;
     }
-
+    if (game.urgency > 3){
+      $('.one').addClass('instCo');
+    }
     if (game.imgArray[0] !== undefined){
       game.imgCount = game.imgArray.shift();
     }
@@ -172,16 +179,16 @@ $('.ic').css('background-color', '#ffe7e7')
         $('.screen').html(baby);
         $('.ic').css('background-color', '#ffe7e7');
         if (game.growth === 0){
-          $('.storyCon').text("What happened to Egg... I liked Egg better. I will call it Baby.");
+          $('.storyCon').text("You're on your own with Baby... It's up to you to figure out what Baby needs");
         } else if (game.growth === 1){
-           $('.storyCon').text("Baby seems to be desprately dependant on you... Maybe your rethinking your life choices?");
+           $('.storyCon').text("Baby seems to be desprately dependant on you... Maybe you're rethinking your life choices?");
          } else if (game.growth === 2){
             $('.storyCon').text('I think Baby is packing on those pounds');
           }
       } else if (game.imgCount === 6){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.reset').addClass('instCo');
-        $('.storyCon').text('Frozen Dead Egg');
+        $('.storyCon').text('Check your municipal code regarding the "keeping of bodies", cause you\'ve got a Frozen Dead Egg');
         $('.screen').html(frozenSolid);
       } else if (game.imgCount === 7){
         $('.screen').html(eatBaby);
@@ -269,9 +276,10 @@ $('.ic').css('background-color', '#ffe7e7')
 
   function resetUrgency(){
     if (game.urgency > 2){
+      $('.one').removeClass('instCo');
       game.urgency = 0;
       game.imgArray.push(11);
-      game.imgArray.push(11);
+      game.imgArray.push(5);
     }
   }
 
@@ -285,7 +293,7 @@ $('.ic').css('background-color', '#ffe7e7')
   }
 
   $('.one').click(function(){
-    if (game.warmth !== 10){
+    if (game.warmth !== 12){
         resetWarmth();
     }
   });

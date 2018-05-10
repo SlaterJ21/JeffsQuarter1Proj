@@ -1,5 +1,27 @@
 $(document).ready(function(){
 
+  $(document).bind('keypress', function(e){
+    console.log(e.keyCode)
+    if (e.keyCode == 105){
+      toggleInst();
+    }
+    if (e.keyCode == 106){
+      $('.one').click()
+    }
+    if (e.keyCode == 107){
+      $('.two').click()
+    }
+    if (e.keyCode == 108){
+      $('.three').click()
+    }
+    if (e.keyCode == 114){
+      $('.reset').click()
+    }
+    if (e.keyCode == 115){
+      $('.start').click()
+    }
+  })
+
   if(localStorage.getItem('switch') == 'on' || !localStorage.getItem('switch')){
     $('.instTog').text('Instructions on');
   } else if (localStorage.getItem('switch') == 'off'){
