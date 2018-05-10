@@ -6,7 +6,7 @@
   padding-top: 1.7vw;
   padding-bottom: 1.7vw;
   font-size: 1.8vw;
-  background-color: #ffbb3f;
+  background-color: #f79226;
 }
 
 .header .left {
@@ -30,7 +30,7 @@
   padding-top: 1.7vw;
   padding-bottom: 1.7vw;
   font-size: 1.8vw;
-  background-color: #ffbb3f;
+  background-color: #f79226;
   margin-top: 8%;
 }
 
@@ -55,7 +55,7 @@
   padding-top: 1.7vw;
   padding-bottom: 1.7vw;
   font-size: 1.8vw;
-  background-color: #ffbb3f;
+  background-color: #f79226;
   margin-top: 0;
 }
 
@@ -123,6 +123,16 @@ grid-row: 2 / 3;
   background-size: cover;
   background-position: center;
   border-radius: 5%;
+}
+
+.icon {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+  background-image: url(../img/download.png);
+  background-size: cover;
+  margin-top: .5vw;
+  padding-top: -.5vw;
+  margin-bottom: .4vw;
 }
 
 /* .about {
