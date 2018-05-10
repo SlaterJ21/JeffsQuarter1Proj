@@ -33,7 +33,7 @@
   grid-template-rows: repeat(10, 1fr);
   height: 40vw;
   width: 30vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 50% / 60% 60% 40% 40%;
   margin: auto;
   margin-top: .8vw;
@@ -48,7 +48,7 @@
 .indicator {
   height: 2vw;
   width: 2vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 100%;
   margin: auto;
   margin-top: 2vw;
@@ -64,7 +64,7 @@
   grid-template-columns: repeat(7, 1fr);
   height: 55%;
   width: 105%;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   grid-column: 2 / 5;
   grid-row: 2 / 3;
@@ -116,7 +116,7 @@
   margin: auto;
   margin-top: 8%;
   margin-left: -.644vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   overflow: hidden;
   grid-column: 2 / 5;
@@ -129,7 +129,7 @@
   grid-template-rows: repeat(3, 1fr);
   height: 90%;
   width: 90%;
-  /* border: 2px solid black; */
+  /* border: .2vw solid black; */
   grid-column: 2 / 5;
   grid-row: 8 / 10;
   grid-column-gap: 2vw;
@@ -144,7 +144,7 @@
   grid-template-rows: 32% 34% 32%;
   height: 90%;
   width: 90%;
-  /* border: 2px solid black; */
+  /* border: .2vw solid black; */
   grid-column: 2 / 3;
   grid-row: 1 / 4;
   margin: auto;
@@ -155,7 +155,7 @@
 .button {
   height: 4vw;
   width: 4vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 100%;
   margin: auto;
 }
@@ -203,7 +203,7 @@
   margin-top: 5.8vw ;
   margin-bottom: -2vw;
   grid-column: 2 / 3;
-  border: 2px solid black;
+  border: .2vw solid black;
   height: 3vw;
   width: 16vw;
   padding: .6vw;
@@ -226,7 +226,7 @@
   padding-top: 1vw;
   height: 2vw;
   width: 8vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   background-color: rgb(255, 231, 231);
   opacity: .8;
@@ -250,7 +250,7 @@
   margin-right: -3vw;
   height: 5.3vw;
   width: 24vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -274,7 +274,7 @@
   height: 7vw;
   width: 15vw;
   margin-top: 6vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -298,7 +298,7 @@
   grid-column: 1 / 2;
   height: 5.3vw;
   width: 24vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -322,7 +322,7 @@
   height: 7vw;
   width: 15vw;
   margin-right: -2.3vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -346,7 +346,7 @@
   height: 8vw;
   width: 15vw;
   margin-left: -2.3vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -369,7 +369,7 @@
   grid-column: 3 / 4;
   margin-left: 5vw;
   margin-top: 6.5vw;
-  border: 2px solid black;
+  border: .2vw solid black;
   border-radius: 1vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -382,5 +382,5 @@
 }
 
 .instCo {
-  border: 2px solid white;
+  border: .2vw solid white;
 }
