@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-size: 100vw;
   margin-top: 0;
+  background-position: fixed;
 }
 
 .page {
@@ -35,6 +36,7 @@
   border: 2px solid black;
   border-radius: 50% / 60% 60% 40% 40%;
   margin: auto;
+  margin-top: .8vw;
   background-color: #DD7373
 }
 
@@ -198,8 +200,8 @@
 
 .instTog {
   margin: auto;
-  margin-top: 6vw ;
-  margin-bottom: -1vw;
+  margin-top: 5.8vw ;
+  margin-bottom: -2vw;
   grid-column: 2 / 3;
   border: 2px solid black;
   height: 3vw;
@@ -219,7 +221,6 @@
   grid-row: 1 / 2;
   margin: auto;
   margin-top: 5vw;
-  margin-bottom: 1vw;
   font-size: 1.2vw;
   padding: .6vw;
   padding-top: 1vw;
@@ -247,8 +248,8 @@
 .statusInfoCon {
   grid-column: 3 / 4;
   margin-right: -3vw;
-  height: 10vw;
-  width: 15vw;
+  height: 5.3vw;
+  width: 24vw;
   border: 2px solid black;
   border-radius: 1vw;
   padding: .6vw;
@@ -272,6 +273,7 @@
 .eggInfoCon {
   height: 7vw;
   width: 15vw;
+  margin-top: 6vw;
   border: 2px solid black;
   border-radius: 1vw;
   padding: .6vw;
@@ -294,8 +296,8 @@
 
 .indicInfoCon {
   grid-column: 1 / 2;
-  height: 8vw;
-  width: 18vw;
+  height: 5.3vw;
+  width: 24vw;
   border: 2px solid black;
   border-radius: 1vw;
   padding: .6vw;
@@ -317,7 +319,7 @@
 
 .buttonInfoCon {
   grid-column: 3 / 4;
-  height: 8vw;
+  height: 7vw;
   width: 15vw;
   margin-right: -2.3vw;
   border: 2px solid black;
@@ -362,11 +364,11 @@
 }
 
 .storyCon {
-  height: 10vw;
+  height: 9.5vw;
   width: 25vw;
   grid-column: 3 / 4;
   margin-left: 5vw;
-  margin-top: 2vw;
+  margin-top: 6.5vw;
   border: 2px solid black;
   border-radius: 1vw;
   padding: .6vw;

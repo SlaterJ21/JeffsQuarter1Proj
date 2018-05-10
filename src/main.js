@@ -130,13 +130,13 @@ $('.ic').css('background-color', '#ffe7e7')
         $('.screen').html(egg);
         $('.ic').css('background-color', '#ffe7e7');
         if (game.hatch === 0){
-          $('.storyCon').text('Say hello to egg');
+          $('.storyCon').text("It's important that you care for egg. Please keep Egg warm by pressing the purple button when prompted.");
         } else if (game.hatch === 1){
-           $('.storyCon').text('Egg is toasty');
+           $('.storyCon').text('Egg is now toasty thanks to your concerted efforts.');
           } else if (game.hatch === 2){
-          $('.storyCon').text('Nice and warm');
+          $('.storyCon').text("Did you see the status bar go up. It's as if your working toward a goal.");
             } else if (game.hatch === 3){
-            $('.storyCon').text('Thats the spot');
+            $('.storyCon').text("Something's happening to Egg");
             }
       } else if (game.imgCount === 1){
         $('.ic').css('background-color', $('.reset').css('background-color'));
@@ -152,19 +152,32 @@ $('.ic').css('background-color', '#ffe7e7')
         }
         if (game.imgArray[1] === 5){
           $('.ic').css('background-color', '#ffe7e7');
-          $('.storyCon').text('Eggs Hatching');
+          $('.storyCon').text('Egads!@#% Eggs Hatching');
         }
         $('.screen').html(eggCrack);
       } else if (game.imgCount === 3){
         $('.screen').html(crackedEgg);
       }  else if (game.imgCount === 4){
-        $('.storyCon').text('Egg is cold!!!');
         $('.ic').css('background-color', $('.one').css('background-color'));
         $('.one').addClass('instCo');
         $('.screen').html(coldEgg);
+        if (game.hatch === 0){
+          $('.storyCon').text("Oh no!!! Egg is getting cold. Please keep Egg warm by pressing the purple button.");
+        } else if (game.hatch === 1){
+           $('.storyCon').text('You may have won the battle but you have not won the WARmth...');
+          } else if (game.hatch === 2){
+            $('.storyCon').text('... any resonable person would have put a system in place to keep Egg warm.');
+          }
       } else if (game.imgCount === 5){
         $('.screen').html(baby);
         $('.ic').css('background-color', '#ffe7e7');
+        if (game.growth === 0){
+          $('.storyCon').text("What happened to Egg... I liked Egg better. I will call it Baby.");
+        } else if (game.growth === 1){
+           $('.storyCon').text("Baby seems to be desprately dependant on you... Maybe your rethinking your life choices?");
+         } else if (game.growth === 2){
+            $('.storyCon').text('I think Baby is packing on those pounds');
+          }
       } else if (game.imgCount === 6){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.reset').addClass('instCo');
