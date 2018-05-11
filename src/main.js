@@ -208,7 +208,7 @@ $('.ic').css('background-color', '#ffe7e7')
       } else if (game.imgCount === 10){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.reset').addClass('instCo');
-        $('.storyCon').text('You\'ve raised Egg from a... well egg to an ungrateful brat that doesn\'t understand the extent of your effort');
+        $('.storyCon').text('You\'ve raised Egg from a... well egg to a uhh anyway thats it YOU WIN');
         $('.screen').html(grown);
       } else if (game.imgCount === 11){
         $('.screen').html(urgenP);
