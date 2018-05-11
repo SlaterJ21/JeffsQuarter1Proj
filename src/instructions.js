@@ -22,9 +22,6 @@ $(document).ready(function(){
     }
   })
 
-
-  console.log(localStorage.getItem('switch'))
-
   if(localStorage.getItem('switch') == 'on' || !localStorage.getItem('switch')){
     $('.instTog').text('Instructions on');
   } else if (localStorage.getItem('switch') == 'off'){
@@ -36,7 +33,7 @@ $(document).ready(function(){
   }
 
   function toggleInst(){
-    if (localStorage.getItem('switch') == 'on'){
+    if (localStorage.getItem('switch') == 'on' || !localStorage.getItem('switch')){
       $('.instTog').text('Instructions off');
       $('.info').hide();
       localStorage.setItem('switch', 'off');
@@ -48,7 +45,6 @@ $(document).ready(function(){
   }
 
   $('.instTog').click(toggleInst);
-
 
   function hideInstructions(){
     $('.info').hide();
