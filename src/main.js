@@ -32,14 +32,9 @@ class Game {
 
     this.hT = function(){
       this.hunger++;
-      if (this.hunger === 8 && $('.storyCon').text() === 'Thirsty'){
-        $('.storyCon').text('Thirsty & Hungry');
-        $('.two').addClass('instCo');
-        $('.three').addClass('instCo');
-      } else if (this.hunger === 8){
+       if (this.hunger === 8){
         $('.ic').css('background-color', $('.two').css('background-color'));
         $('.two').addClass('instCo');
-        $('.storyCon').text('Hungry');
       }
       if (this.hunger === 14){
         this.state = 2;
@@ -48,14 +43,9 @@ class Game {
 
     this.tT = function(){
       this.thirst++;
-      if (this.thirst === 6 && $('.storyCon').text() === 'Hungry'){
-        $('.storyCon').text('Hungry & Thirsty');
-        $('.two').addClass('instCo');
-        $('.three').addClass('instCo');
-      } else if (this.thirst === 6) {
+      if (this.thirst === 6) {
         $('.ic').css('background-color', $('.three').css('background-color'));
         $('.three').addClass('instCo');
-        $('.storyCon').text('Thirsty')
       }
       if (this.thirst === 11){
         this.state = 2;
@@ -159,7 +149,7 @@ $('.ic').css('background-color', '#ffe7e7')
         if (game.eggPoke > 2){
           $('.ic').css('background-color', $('.reset').css('background-color'));
           $('.reset').addClass('instCo');
-          $('.storyCon').text('You broke it');
+          $('.storyCon').text('You broke it... I said don\'t poke the egg, you poked the egg');
           game.state = 10;
         }
         if (game.imgArray[1] === 5){
@@ -184,12 +174,16 @@ $('.ic').css('background-color', '#ffe7e7')
         $('.screen').html(baby);
         $('.ic').css('background-color', '#ffe7e7');
         if (game.growth === 0){
-          $('.storyCon').text("You're on your own with Baby... It's up to you to figure out what Baby needs");
+          $('.storyCon').text("Baby gets hungry and thirsty... Figure it out.");
         } else if (game.growth === 1){
-           $('.storyCon').text("Baby seems to be desprately dependant on you... Maybe you're rethinking your life choices?");
+           $('.storyCon').text("Baby is dependent on you... Maybe you're rethinking your life choices?");
          } else if (game.growth === 2){
-            $('.storyCon').text('I think Baby is packing on those pounds');
-          }
+            $('.storyCon').text('Did you think that baby would do anything other than eat, drink and poo?');
+          } else if (game.growth === 3){
+             $('.storyCon').text('I think Baby is packing on those pounds');
+           } else if (game.growth === 4){
+              $('.storyCon').text('Something is happening to baby.');
+            }
       } else if (game.imgCount === 6){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.reset').addClass('instCo');
@@ -197,18 +191,8 @@ $('.ic').css('background-color', '#ffe7e7')
         $('.screen').html(frozenSolid);
       } else if (game.imgCount === 7){
         $('.screen').html(eatBaby);
-        if ($('.storyCon').text() === 'Thirsty & Hungry' || $('.storyCon').text() === 'Hungry & Thirsty'){
-          $('.storyCon').text('Thirsty');
-        } else if ($('.storyCon').text() === 'Hungry'){
-          $('.storyCon').text('Yum');
-        }
       } else if (game.imgCount === 8){
         $('.screen').html(babyDrink);
-        if ($('.storyCon').text() === 'Thirsty & Hungry' || $('.storyCon').text() === 'Hungry & Thirsty'){
-          $('.storyCon').text('Hungry');
-        } else if ($('.storyCon').text() === 'Thirsty'){
-          $('.storyCon').text('Quenched');
-        }
       } else if (game.imgCount === 9){
         $('.screen').html(deadBones);
         $('.ic').css('background-color', $('.reset').css('background-color'));
@@ -224,7 +208,7 @@ $('.ic').css('background-color', '#ffe7e7')
       } else if (game.imgCount === 10){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.reset').addClass('instCo');
-        $('.storyCon').text('You Win');
+        $('.storyCon').text('You\'ve raised Egg from a... well egg to an ungrateful brat that doesn\'t understand the extent of your effort');
         $('.screen').html(grown);
       } else if (game.imgCount === 11){
         $('.screen').html(urgenP);

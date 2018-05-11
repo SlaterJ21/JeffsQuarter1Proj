@@ -144,6 +144,7 @@
 }
 .pThree {
   grid-column: 3 / 4;
+  border-right: .2vw solid black;
 }
 .pFour {
   grid-column: 4 / 5;
