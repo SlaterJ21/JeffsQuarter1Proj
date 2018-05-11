@@ -131,9 +131,9 @@
 }
 
 .prog {
- heigth: 120%;
+ height: 125%;
  width: 100%;
- border: 1px solid black;
+ /* border: 2% solid black; */
 }
 
 .pOne {
