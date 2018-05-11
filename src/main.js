@@ -136,20 +136,20 @@ $('.ic').css('background-color', '#ffe7e7')
         } else if (game.hatch === 1){
            $('.storyCon').text('Egg is now toasty thanks to your concerted efforts.');
           } else if (game.hatch === 2){
-          $('.storyCon').text("Did you see the status bar go up. It's as if your working toward a goal.");
+          $('.storyCon').text("Did you see the status bar go up. It's as if you\'re working toward a goal.");
             } else if (game.hatch === 3){
             $('.storyCon').text("Something's happening to Egg");
             }
       } else if (game.imgCount === 1){
         $('.ic').css('background-color', $('.reset').css('background-color'));
         $('.reset').addClass('instCo');
-        $('.storyCon').text('You fried Egg');
+        $('.storyCon').text('You fried Egg. You really shouldn\'t press the buttons if I dont tell you to.');
         $('.screen').html(friedEgg);
       } else if (game.imgCount === 2){
         if (game.eggPoke > 2){
           $('.ic').css('background-color', $('.reset').css('background-color'));
           $('.reset').addClass('instCo');
-          $('.storyCon').text('You broke it... I said don\'t poke the egg, you poked the egg');
+          $('.storyCon').text('You broke it... I said don\'t poke the egg, you poked the egg.');
           game.state = 10;
         }
         if (game.imgArray[1] === 5){
@@ -178,7 +178,7 @@ $('.ic').css('background-color', '#ffe7e7')
         } else if (game.growth === 1){
            $('.storyCon').text("Baby is dependent on you... Maybe you're rethinking your life choices?");
          } else if (game.growth === 2){
-            $('.storyCon').text('Did you think that baby would do anything other than eat, drink and poo?');
+            $('.storyCon').text('Did you think that baby would do anything other than eat, drink and poo? No that\'s about it...');
           } else if (game.growth === 3){
              $('.storyCon').text('I think Baby is packing on those pounds');
            } else if (game.growth === 4){

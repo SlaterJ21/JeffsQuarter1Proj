@@ -22,6 +22,9 @@ $(document).ready(function(){
     }
   })
 
+
+  console.log(localStorage.getItem('switch'))
+
   if(localStorage.getItem('switch') == 'on' || !localStorage.getItem('switch')){
     $('.instTog').text('Instructions on');
   } else if (localStorage.getItem('switch') == 'off'){
